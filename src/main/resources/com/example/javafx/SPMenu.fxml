@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.SPMenu">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="600.0">
+         <children>
+            <TextField layoutX="74.0" layoutY="135.0" promptText="Name:">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </TextField>
+            <Label layoutX="113.0" layoutY="55.0" text="Player 1">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="395.0" layoutY="55.0" text="Player 2">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField layoutX="74.0" layoutY="235.0" promptText="Symbol:">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </TextField>
+            <Button layoutX="314.0" layoutY="555.0" mnemonicParsing="false" text="Start Game">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Separator layoutX="355.0" layoutY="107.0" maxHeight="425.0" maxWidth="50.0" minHeight="50.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" />
+            <Label layoutX="425.0" layoutY="135.0" text="Name: COM">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="425.0" layoutY="243.0" text="Symbol: X">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button layoutX="558.0" layoutY="-2.0" mnemonicParsing="false" onAction="#GameSP" text="Back To Main Menu">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
