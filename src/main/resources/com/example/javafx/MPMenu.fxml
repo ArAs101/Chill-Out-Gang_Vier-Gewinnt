@@ -50,7 +50,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Button fx:id="btn_Menu" layoutX="568.0" layoutY="-1.0" mnemonicParsing="false" onAction="#MultiPlayerView" text="Back To Main Menu">
+      <Button fx:id="btn_Menu" layoutX="568.0" layoutY="-1.0" mnemonicParsing="false" onAction="#MainMenuView" text="Back To Main Menu">
          <font>
             <Font size="15.0" />
          </font>

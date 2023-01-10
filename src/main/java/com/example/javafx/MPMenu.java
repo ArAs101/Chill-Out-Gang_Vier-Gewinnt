@@ -52,13 +52,13 @@ public class MPMenu {
         stage.show();
     }
 
-    public void load()
+    public void load() //checks input of textfields
     {
         btn_Start.setDisable(true);
 
         boolean isDisabled1 = tf_Name1.getText().isEmpty() || tf_Symbol1.getText().isEmpty() || tf_Name1.getText().trim().isEmpty() || tf_Symbol1.getText().trim().isEmpty();
         boolean isDisabled2 = tf_Name2.getText().isEmpty() || tf_Symbol2.getText().isEmpty() || tf_Name2.getText().trim().isEmpty() || tf_Symbol2.getText().trim().isEmpty();
-        if(isDisabled1 == false && isDisabled2 == false)
+        if(isDisabled1 == false && isDisabled2 == false && tf_Symbol1.getText().length() == 1 && tf_Symbol2.getText().length() == 1 && !Objects.equals(tf_Symbol1.getText(), tf_Symbol2.getText()) && !Objects.equals(tf_Name1.getText(), tf_Name2.getText()))
         {
             btn_Start.setDisable(false);
         }
