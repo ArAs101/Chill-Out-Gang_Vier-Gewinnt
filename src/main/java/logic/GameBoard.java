@@ -116,12 +116,19 @@ public class GameBoard {
     //Nur zum Testen
     public void print()
     {
-        for (int i = 0; i < this.gameBoard.length; i++) {
-            for (int j = 0; j < this.gameBoard[i].length; j++) {
-                System.out.print(this.gameBoard[i][j] + " ");
-            }
-            System.out.println();
-        }
+        System.out.println("|---------------------------|");
+        System.out.println("| " + this.gameBoard[0][0] + " | " + this.gameBoard[0][1] + " | " + this.gameBoard[0][2] + " | " + this.gameBoard[0][3] + " | " + this.gameBoard[0][4] + " | " + this.gameBoard[0][5] + " | " + this.gameBoard[0][6] + " | ");
+        System.out.println("|---+---+---+---+---+---+---|");
+        System.out.println("| " + this.gameBoard[1][0] + " | " + this.gameBoard[1][1] + " | " + this.gameBoard[1][2] + " | " + this.gameBoard[1][3] + " | " + this.gameBoard[1][4] + " | " + this.gameBoard[1][5] + " | " + this.gameBoard[1][6] + " | ");
+        System.out.println("|---+---+---+---+---+---+---|");
+        System.out.println("| " + this.gameBoard[2][0] + " | " + this.gameBoard[2][1] + " | " + this.gameBoard[2][2] + " | " + this.gameBoard[2][3] + " | " + this.gameBoard[2][4] + " | " + this.gameBoard[2][5] + " | " + this.gameBoard[2][6] + " | ");
+        System.out.println("|---+---+---+---+---+---+---|");
+        System.out.println("| " + this.gameBoard[3][0] + " | " + this.gameBoard[3][1] + " | " + this.gameBoard[3][2] + " | " + this.gameBoard[3][3] + " | " + this.gameBoard[3][4] + " | " + this.gameBoard[3][5] + " | " + this.gameBoard[3][6] + " | ");
+        System.out.println("|---+---+---+---+---+---+---|");
+        System.out.println("| " + this.gameBoard[4][0] + " | " + this.gameBoard[4][1] + " | " + this.gameBoard[4][2] + " | " + this.gameBoard[4][3] + " | " + this.gameBoard[4][4] + " | " + this.gameBoard[4][5] + " | " + this.gameBoard[4][6] + " | ");
+        System.out.println("|---+---+---+---+---+---+---|");
+        System.out.println("| " + this.gameBoard[5][0] + " | " + this.gameBoard[5][1] + " | " + this.gameBoard[5][2] + " | " + this.gameBoard[5][3] + " | " + this.gameBoard[5][4] + " | " + this.gameBoard[5][5] + " | " + this.gameBoard[5][6] + " | ");
+        System.out.println("|---------------------------|");
     }
 
     public void printFX(GridPane gp) //prints gameboard in JavaFX
