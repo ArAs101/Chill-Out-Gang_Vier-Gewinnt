@@ -141,6 +141,7 @@ public class GameBoard {
         System.out.println("|---+---+---+---+---+---+---|");
         System.out.println("| " + this.gameBoard[5][0] + " | " + this.gameBoard[5][1] + " | " + this.gameBoard[5][2] + " | " + this.gameBoard[5][3] + " | " + this.gameBoard[5][4] + " | " + this.gameBoard[5][5] + " | " + this.gameBoard[5][6] + " | ");
         System.out.println("|---------------------------|");
+        System.out.println("- 1 | 2 | 3 | 4 | 5 | 6 | 7 -");
     }
 
     public void printFX(GridPane gp) //prints gameboard in JavaFX
