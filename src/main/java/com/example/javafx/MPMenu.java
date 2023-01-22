@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import logic.Players;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -44,7 +45,8 @@ public class MPMenu {
     }
 
     public void MultiPlayerView(ActionEvent event) throws IOException {
-
+        Multiplayer.p = new Players(tf_Name1.getText(),tf_Symbol1.getText().charAt(0));
+        Multiplayer.p2 = new Players(tf_Name2.getText(),tf_Symbol2.getText().charAt(0));
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Multiplayer.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

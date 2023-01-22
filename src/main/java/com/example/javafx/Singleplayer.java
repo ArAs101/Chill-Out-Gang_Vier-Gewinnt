@@ -45,7 +45,7 @@ public class Singleplayer {
     SPMenu spm;
 
 
-    Players p = new Players("Spieler",'O'); //name and symbol should be taken over from MPMenu - for now static
+    static Players p = new Players("Spieler",'O'); //name and symbol should be taken over from MPMenu - for now static
     Players cpuPlayer = new Players("CPU",'X'); //name and symbol should be taken over from MPMenu - for now static
     GameBoard gb = new GameBoard(p,cpuPlayer);
 

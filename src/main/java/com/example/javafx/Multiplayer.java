@@ -48,8 +48,8 @@ public class Multiplayer {
 
 
 
-    Players p = new Players("Spieler",'O'); //name and symbol should be taken over from MPMenu - for now static
-    Players p2 = new Players("Spieler2",'X'); //name and symbol should be taken over from MPMenu - for now static
+    static Players p = new Players("Spieler",'O'); //name and symbol should be taken over from MPMenu - for now static
+    static Players p2 = new Players("Spieler2",'X'); //name and symbol should be taken over from MPMenu - for now static
     GameBoard gb = new GameBoard(p,p2);
 
     int roundCounter = 1; //counts the amount of "rounds" - every time a player places a tick the counter increases

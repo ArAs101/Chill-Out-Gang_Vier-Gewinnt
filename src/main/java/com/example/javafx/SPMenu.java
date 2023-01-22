@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import logic.Players;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -46,10 +47,7 @@ public class SPMenu {
 
     public void SinglePlayerView(ActionEvent event) throws IOException {
 
-        name = tf_Name.getText();
-        symbol = tf_Symbol.getCharacters().charAt(0);
-
-
+        Singleplayer.p = new Players(tf_Name.getText(),tf_Symbol.getCharacters().charAt(0));
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Singleplayer.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
