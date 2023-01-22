@@ -30,36 +30,44 @@ public class Players {
         this.symbol = symbol;
     }
 
-    public void place(GameBoard gameBoard)
+    public void place(GameBoard gameBoard) //places players symbole on selected col (on the gameboard) - multiplayer
     {
         Scanner sc = new Scanner(System.in);
-        int selected;
-        boolean loop = true;
+        int selected; //selected column
+        boolean loop = true; //needed for loop below
         do {
             System.out.print("Enter a number between 1 and 7: ");
-            selected = sc.nextInt();
-            if(selected >= 1 && selected <= 7)
+            selected = sc.nextInt(); //input from user
+            if(selected >= 1 && selected <= 7) //check selected number 1-7
             {
-                if(gameBoard.placeOnGameBoard(this,selected-1))
+                if(gameBoard.placeOnGameBoard(this,selected-1)) //returns true if placement on gameboard was successful
                 {
                     loop = false;
                 }
             }
-        } while ((selected < 1 || selected > 7) || loop);
+        } while (loop); //loops until it was able to place on gameboard and selected number was between 1-7
     }
-    public void place(GameBoard gameBoard, boolean bot)
+    public void place(GameBoard gameBoard, boolean bot) //bot = true means a bot is placing on the gameboard - singleplayer
     {
-        Random random = new Random();
-        int selected = random.nextInt(7) + 1;
-        boolean loop = true;
-        do {
-            if(gameBoard.placeOnGameBoard(this,selected-1))
-            {
-                System.out.println("Selected: " + selected);
-                loop = false;
-            }
-            selected = random.nextInt(7) + 1;
+        if (bot)
+        {
+            Random random = new Random();
+            int selected = random.nextInt(7) + 1; //gets a number between 1-7
+            boolean loop = true;
+            do {
+                if(gameBoard.placeOnGameBoard(this,selected-1)) //checks if selected col has free spot, return true if placement was successful
+                {
+                    System.out.println("Selected: " + selected); //tells the other player, what the bot has selected
+                    loop = false;
+                }
+                selected = random.nextInt(7) + 1; //gets a new random number for the next loop
 
-        } while (loop);
+            } while (loop);
+        }
+        else //if it is not a bot and someone uses this methode than it will still function with this!
+        {
+            place(gameBoard);
+        }
+
     }
 }
