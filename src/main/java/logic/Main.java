@@ -84,7 +84,7 @@ public class Main {
     public static void playGameMultiplayer(Players p1, Players p2)
     {
         GameBoard gameBoard = new GameBoard(p1,p2);
-        boolean win = false;
+        boolean win = false; //For winner
         double round = 1;
         System.out.println("Game starting....");
         while(!win && round < 43)
