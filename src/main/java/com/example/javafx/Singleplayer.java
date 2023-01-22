@@ -41,12 +41,15 @@ public class Singleplayer {
     private Button btn_C5;
     @FXML
     private Button btn_C6;
+    @FXML
+    private Button btn_C7;
+
 
     SPMenu spm;
 
 
-    static Players p = new Players("Spieler",'O'); //name and symbol should be taken over from MPMenu - for now static
-    Players cpuPlayer = new Players("CPU",'X'); //name and symbol should be taken over from MPMenu - for now static
+    static Players p = new Players("Spieler",'O');
+    Players cpuPlayer = new Players("CPU",'X');
     GameBoard gb = new GameBoard(p,cpuPlayer);
 
     int roundCounter = 1; //counts the amount of "rounds" - every time a player places a tick the counter increases
@@ -54,7 +57,7 @@ public class Singleplayer {
 
     public void initialize()
     {
-        lbl_Turn.setText(p.getName() + " 's turn");
+        lbl_Turn.setText(p.getName() + "'s turn");
     }
     public void MainMenuView(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
@@ -64,7 +67,7 @@ public class Singleplayer {
         stage.show();
     }
 
-    //region button actions - sets tic at demanded place and checks if the game is won/tied
+    //region button actions - sets tic at demanded place and checks if the game is won/tied and looks if a column is filled
     public void Button1Pressed()
     {
         gb.placeOnGameBoard(p,0);
@@ -78,6 +81,10 @@ public class Singleplayer {
         else
         {
             aiMove();
+        }
+        if (!gb.lookAtGameBoard(0))
+        {
+            btn_C1.setDisable(true);
         }
     }
 
@@ -94,6 +101,10 @@ public class Singleplayer {
         {
             aiMove();
         }
+        if (!gb.lookAtGameBoard(1))
+        {
+            btn_C2.setDisable(true);
+        }
     }
 
     public void Button3Pressed()
@@ -108,6 +119,10 @@ public class Singleplayer {
         else
         {
             aiMove();
+        }
+        if (!gb.lookAtGameBoard(2))
+        {
+            btn_C3.setDisable(true);
         }
     }
 
@@ -124,6 +139,10 @@ public class Singleplayer {
         {
             aiMove();
         }
+        if (!gb.lookAtGameBoard(3))
+        {
+            btn_C4.setDisable(true);
+        }
     }
 
     public void Button5Pressed()
@@ -138,6 +157,10 @@ public class Singleplayer {
         else
         {
             aiMove();
+        }
+        if (!gb.lookAtGameBoard(4))
+        {
+            btn_C5.setDisable(true);
         }
     }
 
@@ -154,8 +177,34 @@ public class Singleplayer {
         {
             aiMove();
         }
+        if (!gb.lookAtGameBoard(5))
+        {
+            btn_C6.setDisable(true);
+        }
 
     }
+
+    public void Button7Pressed()
+    {
+        gb.placeOnGameBoard(p,6);
+        gb.printFX(gp_GameBoard);
+        roundCounter++;
+        if (gb.checkIfWon(p))
+        {
+            gameWon();
+        }
+        else
+        {
+            aiMove();
+        }
+        if (!gb.lookAtGameBoard(6))
+        {
+            btn_C7.setDisable(true);
+        }
+
+    }
+
+
     //endregion
 
     public void gameWon() //show this when game is won
@@ -175,6 +224,7 @@ public class Singleplayer {
         btn_C4.setDisable(true);
         btn_C5.setDisable(true);
         btn_C6.setDisable(true);
+        btn_C7.setDisable(true);
     }
 
     public void gameLost() //show this when game is lost
@@ -195,8 +245,7 @@ public class Singleplayer {
         btn_C4.setDisable(true);
         btn_C5.setDisable(true);
         btn_C6.setDisable(true);
-
-
+        btn_C7.setDisable(true);
     }
 
     public void gameTied() //show this when game has tied
@@ -217,40 +266,71 @@ public class Singleplayer {
         btn_C4.setDisable(true);
         btn_C5.setDisable(true);
         btn_C6.setDisable(true);
-
-
+        btn_C7.setDisable(true);
     }
 
     public void aiMove () //random ai movement
     {
-        lbl_Turn.setText(cpuPlayer.getName() + " 's turn");
+        lbl_Turn.setText(cpuPlayer.getName() + "'s turn");
 
         Random rndm = new Random();
-        int rngZahl = rndm.nextInt(6);
-        gb.placeOnGameBoard(cpuPlayer, rngZahl);
+        int rngZahl = rndm.nextInt(7);
 
-        gb.printFX(gp_GameBoard);
 
-        roundCounter++;
-
-        if(gb.checkIfWon(cpuPlayer))
+        if(gb.placeOnGameBoard(cpuPlayer, rngZahl))
         {
-            gameLost();
+            gb.printFX(gp_GameBoard);
+
+            roundCounter++;
+
+            if(gb.checkIfWon(cpuPlayer))
+            {
+                gameLost();
+            }
+
+            if(roundCounter > 42)
+            {
+                gameTied();
+            }
+
+            lbl_Turn.setText(p.getName() + "'s turn");
+
+            if (!gb.lookAtGameBoard(rngZahl))
+            {
+                if(rngZahl == 0)
+                {
+                    btn_C1.setDisable(true);
+                }
+                else if(rngZahl == 1)
+                {
+                    btn_C2.setDisable(true);
+                }
+                else if(rngZahl == 2)
+                {
+                    btn_C3.setDisable(true);
+                }
+                else if(rngZahl == 3)
+                {
+                    btn_C4.setDisable(true);
+                }
+                else if(rngZahl == 4)
+                {
+                    btn_C5.setDisable(true);
+                }
+                else if(rngZahl == 5)
+                {
+                    btn_C6.setDisable(true);
+                }
+                else
+                {
+                    btn_C7.setDisable(true);
+                }
+            }
         }
-
-        if(roundCounter > 42)
-        {
-            gameTied();
+        else {
+            aiMove();
         }
-
-        lbl_Turn.setText(p.getName() + " 's turn");
-
-
 
     }
-
-
-
-
 
 }

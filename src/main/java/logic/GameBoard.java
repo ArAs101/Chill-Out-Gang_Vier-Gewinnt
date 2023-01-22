@@ -8,7 +8,7 @@ public class GameBoard {
     private static final int rows = 6;
     private static final int cols = 7;
 
-    private char[][] gameBoard;
+    public char[][] gameBoard;
 
     public Players p1;
     public Players p2;
@@ -28,6 +28,18 @@ public class GameBoard {
             if(this.gameBoard[i][col] == '\0')
             {
                 this.gameBoard[i][col] = p.getSymbol(); //setting symbol of player on the free spot
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean lookAtGameBoard(int col) //same method as placeOnGameBoard only that it doesn't place a tik and it's used to look if a column is filled
+    {
+        for(int i = rows-1; i >= 0; i--)
+        {
+            if(this.gameBoard[i][col] == '\0')
+            {
                 return true;
             }
         }

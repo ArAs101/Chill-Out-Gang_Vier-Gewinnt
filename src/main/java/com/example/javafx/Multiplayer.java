@@ -40,16 +40,18 @@ public class Multiplayer {
     private Button btn_C5;
     @FXML
     private Button btn_C6;
+    @FXML
+    private Button btn_C7;
 
     public void initialize()
     {
-        lbl_Turn.setText(p.getName() + " 's turn");
+        lbl_Turn.setText(p.getName() + "'s turn");
     }
 
 
 
-    static Players p = new Players("Spieler",'O'); //name and symbol should be taken over from MPMenu - for now static
-    static Players p2 = new Players("Spieler2",'X'); //name and symbol should be taken over from MPMenu - for now static
+    static Players p = new Players("Spieler",'O');
+    static Players p2 = new Players("Spieler2",'X');
     GameBoard gb = new GameBoard(p,p2);
 
     int roundCounter = 1; //counts the amount of "rounds" - every time a player places a tick the counter increases
@@ -62,10 +64,10 @@ public class Multiplayer {
         stage.show();
     }
 
-    //region button actions - sets tic at demanded place and checks if the game is won/tied
+    //region button actions - sets tic at demanded place and checks if the game is won/tied and looks if a column is filled
     public void Button1Pressed()
     {
-        if (lbl_Turn.getText().equals(p.getName() + " 's turn"))
+        if (lbl_Turn.getText().equals(p.getName() + "'s turn"))
         {
             gb.placeOnGameBoard(p,0);
             roundCounter++;
@@ -82,8 +84,12 @@ public class Multiplayer {
             }
             else
             {
-                lbl_Turn.setText(p2.getName() + " 's turn");
+                lbl_Turn.setText(p2.getName() + "'s turn");
 
+            }
+            if (!gb.lookAtGameBoard(0))
+            {
+                btn_C1.setDisable(true);
             }
         }
         else {
@@ -99,8 +105,12 @@ public class Multiplayer {
             if (gb.checkIfWon(p2)) {
                 gameWon(p2);
             } else {
-                lbl_Turn.setText(p.getName() + " 's turn");
+                lbl_Turn.setText(p.getName() + "'s turn");
 
+            }
+            if (!gb.lookAtGameBoard(0))
+            {
+                btn_C1.setDisable(true);
             }
         }
 
@@ -109,7 +119,7 @@ public class Multiplayer {
 
     public void Button2Pressed()
     {
-        if (lbl_Turn.getText().equals(p.getName() + " 's turn"))
+        if (lbl_Turn.getText().equals(p.getName() + "'s turn"))
         {
             gb.placeOnGameBoard(p,1);
             roundCounter++;
@@ -126,8 +136,12 @@ public class Multiplayer {
             }
             else
             {
-                lbl_Turn.setText(p2.getName() + " 's turn");
+                lbl_Turn.setText(p2.getName() + "'s turn");
 
+            }
+            if (!gb.lookAtGameBoard(1))
+            {
+                btn_C2.setDisable(true);
             }
         }
         else {
@@ -143,8 +157,12 @@ public class Multiplayer {
             if (gb.checkIfWon(p2)) {
                 gameWon(p2);
             } else {
-                lbl_Turn.setText(p.getName() + " 's turn");
+                lbl_Turn.setText(p.getName() + "'s turn");
 
+            }
+            if (!gb.lookAtGameBoard(1))
+            {
+                btn_C2.setDisable(true);
             }
         }
 
@@ -152,7 +170,7 @@ public class Multiplayer {
 
     public void Button3Pressed()
     {
-        if (lbl_Turn.getText().equals(p.getName() + " 's turn"))
+        if (lbl_Turn.getText().equals(p.getName() + "'s turn"))
         {
             gb.placeOnGameBoard(p,2);
             roundCounter++;
@@ -169,8 +187,12 @@ public class Multiplayer {
             }
             else
             {
-                lbl_Turn.setText(p2.getName() + " 's turn");
+                lbl_Turn.setText(p2.getName() + "'s turn");
 
+            }
+            if (!gb.lookAtGameBoard(2))
+            {
+                btn_C3.setDisable(true);
             }
         }
         else {
@@ -186,8 +208,12 @@ public class Multiplayer {
             if (gb.checkIfWon(p2)) {
                 gameWon(p2);
             } else {
-                lbl_Turn.setText(p.getName() + " 's turn");
+                lbl_Turn.setText(p.getName() + "'s turn");
 
+            }
+            if (!gb.lookAtGameBoard(2))
+            {
+                btn_C3.setDisable(true);
             }
         }
 
@@ -195,7 +221,7 @@ public class Multiplayer {
 
     public void Button4Pressed()
     {
-        if (lbl_Turn.getText().equals(p.getName() + " 's turn"))
+        if (lbl_Turn.getText().equals(p.getName() + "'s turn"))
         {
             gb.placeOnGameBoard(p,3);
             roundCounter++;
@@ -212,8 +238,12 @@ public class Multiplayer {
             }
             else
             {
-                lbl_Turn.setText(p2.getName() + " 's turn");
+                lbl_Turn.setText(p2.getName() + "'s turn");
 
+            }
+            if (!gb.lookAtGameBoard(3))
+            {
+                btn_C4.setDisable(true);
             }
         }
         else {
@@ -229,8 +259,12 @@ public class Multiplayer {
             if (gb.checkIfWon(p2)) {
                 gameWon(p2);
             } else {
-                lbl_Turn.setText(p.getName() + " 's turn");
+                lbl_Turn.setText(p.getName() + "'s turn");
 
+            }
+            if (!gb.lookAtGameBoard(3))
+            {
+                btn_C4.setDisable(true);
             }
         }
 
@@ -238,7 +272,7 @@ public class Multiplayer {
 
     public void Button5Pressed()
     {
-        if (lbl_Turn.getText().equals(p.getName() + " 's turn"))
+        if (lbl_Turn.getText().equals(p.getName() + "'s turn"))
         {
             gb.placeOnGameBoard(p,4);
             roundCounter++;
@@ -255,8 +289,12 @@ public class Multiplayer {
             }
             else
             {
-                lbl_Turn.setText(p2.getName() + " 's turn");
+                lbl_Turn.setText(p2.getName() + "'s turn");
 
+            }
+            if (!gb.lookAtGameBoard(4))
+            {
+                btn_C5.setDisable(true);
             }
         }
         else {
@@ -272,8 +310,12 @@ public class Multiplayer {
             if (gb.checkIfWon(p2)) {
                 gameWon(p);
             } else {
-                lbl_Turn.setText(p.getName() + " 's turn");
+                lbl_Turn.setText(p.getName() + "'s turn");
 
+            }
+            if (!gb.lookAtGameBoard(4))
+            {
+                btn_C5.setDisable(true);
             }
         }
 
@@ -281,7 +323,7 @@ public class Multiplayer {
 
     public void Button6Pressed()
     {
-        if (lbl_Turn.getText().equals(p.getName() + " 's turn"))
+        if (lbl_Turn.getText().equals(p.getName() + "'s turn"))
         {
             gb.placeOnGameBoard(p,5);
             roundCounter++;
@@ -298,12 +340,73 @@ public class Multiplayer {
             }
             else
             {
-                lbl_Turn.setText(p2.getName() + " 's turn");
+                lbl_Turn.setText(p2.getName() + "'s turn");
 
+            }
+
+            if (!gb.lookAtGameBoard(5))
+            {
+                btn_C6.setDisable(true);
             }
         }
         else {
-            gb.placeOnGameBoard(p2, 5);
+                gb.placeOnGameBoard(p2, 5);
+                roundCounter++;
+                gb.printFX(gp_GameBoard);
+
+                if(roundCounter > 42)
+                {
+                    gameTied();
+                }
+
+                if (gb.checkIfWon(p2)) {
+                    gameWon(p2);
+                } else {
+
+
+                    lbl_Turn.setText(p.getName() + "'s turn");
+
+                }
+            if (!gb.lookAtGameBoard(5))
+            {
+                btn_C6.setDisable(true);
+            }
+
+
+
+        }
+    }
+
+    public void Button7Pressed()
+    {
+        if (lbl_Turn.getText().equals(p.getName() + "'s turn"))
+        {
+            gb.placeOnGameBoard(p,6);
+            roundCounter++;
+            gb.printFX(gp_GameBoard);
+
+            if(roundCounter > 42)
+            {
+                gameTied();
+            }
+
+            if (gb.checkIfWon(p))
+            {
+                gameWon(p);
+            }
+            else
+            {
+                lbl_Turn.setText(p2.getName() + "'s turn");
+
+            }
+
+            if (!gb.lookAtGameBoard(6))
+            {
+                btn_C7.setDisable(true);
+            }
+        }
+        else {
+            gb.placeOnGameBoard(p2, 6);
             roundCounter++;
             gb.printFX(gp_GameBoard);
 
@@ -317,12 +420,18 @@ public class Multiplayer {
             } else {
 
 
-                lbl_Turn.setText(p.getName() + " 's turn");
+                lbl_Turn.setText(p.getName() + "'s turn");
 
             }
+            if (!gb.lookAtGameBoard(6))
+            {
+                btn_C7.setDisable(true);
+            }
+
+
+
         }
     }
-
     //endregion
 
     public void gameWon(Players player) //show this when somebody won
@@ -342,6 +451,7 @@ public class Multiplayer {
         btn_C4.setDisable(true);
         btn_C5.setDisable(true);
         btn_C6.setDisable(true);
+        btn_C7.setDisable(true);
     }
 
     public void gameTied() //show this when the game has tied
@@ -362,9 +472,6 @@ public class Multiplayer {
         btn_C4.setDisable(true);
         btn_C5.setDisable(true);
         btn_C6.setDisable(true);
+        btn_C7.setDisable(true);
     }
-
-
-
-
 }

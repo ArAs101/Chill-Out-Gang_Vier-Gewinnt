@@ -18,9 +18,9 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -35,11 +35,12 @@
             <Font size="21.0" />
          </font>
       </Text>
-      <Button fx:id="btn_C1" layoutX="25.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button1Pressed" prefHeight="30.0" prefWidth="94.0" text="Column 1" />
-      <Button fx:id="btn_C2" layoutX="129.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button2Pressed" prefHeight="30.0" prefWidth="94.0" text="Column 2" />
-      <Button fx:id="btn_C3" layoutX="233.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button3Pressed" prefHeight="30.0" prefWidth="94.0" text="Column 3" />
-      <Button fx:id="btn_C4" layoutX="339.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button4Pressed" prefHeight="30.0" prefWidth="94.0" text="Column 4" />
-      <Button fx:id="btn_C5" layoutX="443.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button5Pressed" prefHeight="30.0" prefWidth="94.0" text="Column 5" />
-      <Button fx:id="btn_C6" layoutX="551.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button6Pressed" prefHeight="30.0" prefWidth="94.0" text="Column 6" />
+      <Button fx:id="btn_C1" layoutX="25.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button1Pressed" prefHeight="30.0" prefWidth="71.0" text="Column 1" />
+      <Button fx:id="btn_C2" layoutX="117.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button2Pressed" prefHeight="30.0" prefWidth="71.0" text="Column 2" />
+      <Button fx:id="btn_C3" layoutX="208.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button3Pressed" prefHeight="30.0" prefWidth="71.0" text="Column 3" />
+      <Button fx:id="btn_C4" layoutX="297.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button4Pressed" prefHeight="30.0" prefWidth="71.0" text="Column 4" />
+      <Button fx:id="btn_C5" layoutX="384.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button5Pressed" prefHeight="30.0" prefWidth="71.0" text="Column 5" />
+      <Button fx:id="btn_C6" layoutX="478.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button6Pressed" prefHeight="30.0" prefWidth="71.0" text="Column 6" />
+      <Button fx:id="btn_C7" layoutX="568.0" layoutY="472.0" mnemonicParsing="false" onAction="#Button7Pressed" prefHeight="28.0" prefWidth="71.0" text="Column 7" />
    </children>
 </AnchorPane>
