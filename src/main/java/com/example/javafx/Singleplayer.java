@@ -74,6 +74,11 @@ public class Singleplayer {
         gb.printFX(gp_GameBoard);
         roundCounter++;
 
+        if (!gb.lookAtGameBoard(0))
+        {
+            btn_C1.setDisable(true);
+        }
+
         if (gb.checkIfWon(p))
         {
           gameWon();
@@ -82,10 +87,7 @@ public class Singleplayer {
         {
             aiMove();
         }
-        if (!gb.lookAtGameBoard(0))
-        {
-            btn_C1.setDisable(true);
-        }
+
     }
 
     public void Button2Pressed()
@@ -93,6 +95,12 @@ public class Singleplayer {
         gb.placeOnGameBoard(p,1);
         gb.printFX(gp_GameBoard);
         roundCounter++;
+
+        if (!gb.lookAtGameBoard(1))
+        {
+            btn_C2.setDisable(true);
+        }
+
         if (gb.checkIfWon(p))
         {
             gameWon();
@@ -101,10 +109,7 @@ public class Singleplayer {
         {
             aiMove();
         }
-        if (!gb.lookAtGameBoard(1))
-        {
-            btn_C2.setDisable(true);
-        }
+
     }
 
     public void Button3Pressed()
@@ -112,6 +117,12 @@ public class Singleplayer {
         gb.placeOnGameBoard(p,2);
         gb.printFX(gp_GameBoard);
         roundCounter++;
+
+        if (!gb.lookAtGameBoard(2))
+        {
+            btn_C3.setDisable(true);
+        }
+
         if (gb.checkIfWon(p))
         {
             gameWon();
@@ -119,10 +130,6 @@ public class Singleplayer {
         else
         {
             aiMove();
-        }
-        if (!gb.lookAtGameBoard(2))
-        {
-            btn_C3.setDisable(true);
         }
     }
 
@@ -131,6 +138,12 @@ public class Singleplayer {
         gb.placeOnGameBoard(p,3);
         gb.printFX(gp_GameBoard);
         roundCounter++;
+
+        if (!gb.lookAtGameBoard(3))
+        {
+            btn_C4.setDisable(true);
+        }
+
         if (gb.checkIfWon(p))
         {
             gameWon();
@@ -138,10 +151,6 @@ public class Singleplayer {
         else
         {
             aiMove();
-        }
-        if (!gb.lookAtGameBoard(3))
-        {
-            btn_C4.setDisable(true);
         }
     }
 
@@ -150,6 +159,12 @@ public class Singleplayer {
         gb.placeOnGameBoard(p,4);
         gb.printFX(gp_GameBoard);
         roundCounter++;
+
+        if (!gb.lookAtGameBoard(4))
+        {
+            btn_C5.setDisable(true);
+        }
+
         if (gb.checkIfWon(p))
         {
             gameWon();
@@ -157,10 +172,6 @@ public class Singleplayer {
         else
         {
             aiMove();
-        }
-        if (!gb.lookAtGameBoard(4))
-        {
-            btn_C5.setDisable(true);
         }
     }
 
@@ -169,6 +180,12 @@ public class Singleplayer {
         gb.placeOnGameBoard(p,5);
         gb.printFX(gp_GameBoard);
         roundCounter++;
+
+        if (!gb.lookAtGameBoard(5))
+        {
+            btn_C6.setDisable(true);
+        }
+
         if (gb.checkIfWon(p))
         {
             gameWon();
@@ -177,11 +194,6 @@ public class Singleplayer {
         {
             aiMove();
         }
-        if (!gb.lookAtGameBoard(5))
-        {
-            btn_C6.setDisable(true);
-        }
-
     }
 
     public void Button7Pressed()
@@ -189,6 +201,12 @@ public class Singleplayer {
         gb.placeOnGameBoard(p,6);
         gb.printFX(gp_GameBoard);
         roundCounter++;
+
+        if (!gb.lookAtGameBoard(6))
+        {
+            btn_C7.setDisable(true);
+        }
+
         if (gb.checkIfWon(p))
         {
             gameWon();
@@ -197,11 +215,6 @@ public class Singleplayer {
         {
             aiMove();
         }
-        if (!gb.lookAtGameBoard(6))
-        {
-            btn_C7.setDisable(true);
-        }
-
     }
 
 
@@ -225,6 +238,7 @@ public class Singleplayer {
         btn_C5.setDisable(true);
         btn_C6.setDisable(true);
         btn_C7.setDisable(true);
+        lbl_Turn.setText(p.getName() + " WON");
     }
 
     public void gameLost() //show this when game is lost
@@ -246,6 +260,7 @@ public class Singleplayer {
         btn_C5.setDisable(true);
         btn_C6.setDisable(true);
         btn_C7.setDisable(true);
+        lbl_Turn.setText(cpuPlayer.getName() + " WON");
     }
 
     public void gameTied() //show this when game has tied
@@ -267,6 +282,7 @@ public class Singleplayer {
         btn_C5.setDisable(true);
         btn_C6.setDisable(true);
         btn_C7.setDisable(true);
+        lbl_Turn.setText("THE GAME TIED");
     }
 
     public void aiMove () //random ai movement
@@ -282,18 +298,6 @@ public class Singleplayer {
             gb.printFX(gp_GameBoard);
 
             roundCounter++;
-
-            if(gb.checkIfWon(cpuPlayer))
-            {
-                gameLost();
-            }
-
-            if(roundCounter > 42)
-            {
-                gameTied();
-            }
-
-            lbl_Turn.setText(p.getName() + "'s turn");
 
             if (!gb.lookAtGameBoard(rngZahl))
             {
@@ -326,6 +330,21 @@ public class Singleplayer {
                     btn_C7.setDisable(true);
                 }
             }
+
+            if(gb.checkIfWon(cpuPlayer))
+            {
+                gameLost();
+                return;
+            }
+
+            if(roundCounter > 42)
+            {
+                gameTied();
+                return;
+            }
+
+            lbl_Turn.setText(p.getName() + "'s turn");
+
         }
         else {
             aiMove();

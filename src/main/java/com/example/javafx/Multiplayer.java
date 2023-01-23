@@ -76,6 +76,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p))
@@ -100,6 +101,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p2)) {
@@ -128,6 +130,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p))
@@ -152,6 +155,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p2)) {
@@ -179,6 +183,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p))
@@ -203,6 +208,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p2)) {
@@ -230,6 +236,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p))
@@ -254,6 +261,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p2)) {
@@ -281,6 +289,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p))
@@ -305,6 +314,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p2)) {
@@ -332,6 +342,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p))
@@ -357,6 +368,7 @@ public class Multiplayer {
                 if(roundCounter > 42)
                 {
                     gameTied();
+                    return;
                 }
 
                 if (gb.checkIfWon(p2)) {
@@ -388,11 +400,13 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p))
             {
                 gameWon(p);
+
             }
             else
             {
@@ -413,6 +427,7 @@ public class Multiplayer {
             if(roundCounter > 42)
             {
                 gameTied();
+                return;
             }
 
             if (gb.checkIfWon(p2)) {
@@ -452,6 +467,9 @@ public class Multiplayer {
         btn_C5.setDisable(true);
         btn_C6.setDisable(true);
         btn_C7.setDisable(true);
+        lbl_Turn.setText(player.getName() + " WON");
+
+
     }
 
     public void gameTied() //show this when the game has tied
@@ -473,5 +491,6 @@ public class Multiplayer {
         btn_C5.setDisable(true);
         btn_C6.setDisable(true);
         btn_C7.setDisable(true);
+        lbl_Turn.setText("THE GAME TIED");
     }
 }

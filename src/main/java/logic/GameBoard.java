@@ -2,6 +2,7 @@ package logic;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 
 public class GameBoard {
 
@@ -148,8 +149,10 @@ public class GameBoard {
     {
         for (int i = 0; i < this.gameBoard.length; i++) {
             for (int j = 0; j < this.gameBoard[i].length; j++) {
-                Label label = new Label(String.valueOf(this.gameBoard[i][j]));
+                Label label = new Label("    " + String.valueOf(this.gameBoard[i][j]));
+                label.setFont(new Font("Arial",35));
                 gp.add(label, j, i);
+
             }
         }
     }
