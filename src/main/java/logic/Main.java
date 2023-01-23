@@ -131,7 +131,7 @@ public class Main {
         while (!win && round < 43) {
             gameBoard.print();
             System.out.println("Player " + gameBoard.p1.getName() + " turn:");
-            gameBoard.p1.place(gameBoard,true);
+            gameBoard.p1.place(gameBoard);
             round++;
             win = gameBoard.checkIfWon(p1);
             if (win) {
