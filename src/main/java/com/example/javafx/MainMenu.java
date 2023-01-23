@@ -10,8 +10,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -45,6 +49,13 @@ public class MainMenu {
         stage.setScene(scene);
         stage.show();
     }
+
+
+    // Implementing some background music didn't quite work unfortunately...
+    Media media = new Media(new File("src/main/resources/Music/Main_Theme.mp3").toURI().toString());
+    MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+
 
     public void testButton(ActionEvent event) throws IOException
     {

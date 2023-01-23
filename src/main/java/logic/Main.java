@@ -19,26 +19,28 @@ public class Main {
             System.out.print("Please enter 'S' for Singleplayer mode or 'M' for Multiplayer mode: ");
             modechoice = scanner.next().charAt(0);
 
-            if (modechoice == 'S' || modechoice == 'M') {
+            if (modechoice == 'S' || modechoice == 'M') {           //The user will choose their desired gamemode...
                 System.out.print("Please enter the name of Player 1: ");
                 scanner.nextLine();
                 p1.setName(scanner.nextLine());
             } else {
-                System.out.println("Invalid input");
+                System.out.println("Invalid input");                // Error handling
             }
         }
         if (modechoice == 'S') {
             do {
-                System.out.print("Please choose a symbol for Player 1 (as long as it isn't 'X', which is reserved for the AI): ");
+                System.out.print("Please choose a symbol for Player 1 (as long as it isn't 'x' or 'X', which is reserved for the AI): ");
                 p1.setSymbol(scanner.next().charAt(0));
-                if (p1.getSymbol() == 'X') {
+                if (p1.getSymbol() == 'X' || p1.getSymbol() == 'x') {
                     System.out.println("'" + p1.getSymbol() + "' isn't allowed as symbol for Player 1!");
                 }
-            } while (p1.getSymbol() == 0 || p1.getSymbol() == 'X');
+            } while (p1.getSymbol() == 0 || p1.getSymbol() == 'X' || p1.getSymbol() == 'x');
+            // In Singleplayer mode, only Player 1 can be "customized"...
             p2.setName("COM");
             p2.setSymbol('X');
         }
         if (modechoice == 'M') {
+            // All that's left to do is to pick a symbol for Player 1 since their name is already set
             System.out.print("Please choose a symbol for Player 1: ");
             p1.setSymbol(scanner.next().charAt(0));
 
@@ -46,7 +48,7 @@ public class Main {
                 System.out.print("Please enter the name of Player 2: ");
                 scanner.nextLine();
                 p2.setName(scanner.next());
-                if (Objects.equals(p1.getName(), p2.getName())) {
+                if (Objects.equals(p1.getName(), p2.getName())) {           // Error handling...
                     System.out.println("The player names must be different!");
                 }
             } while (Objects.equals(p1.getName(), p2.getName()) || Objects.equals(p2.getName(), ""));
@@ -74,6 +76,7 @@ public class Main {
         System.out.println("The game will start soon :)");
         System.out.println("_________________________________________________________________________________________");
 
+        // Finally, the game can start! :)
         if (modechoice == 'S')
         {
             playGameSingleplayer(p1,p2);
@@ -158,7 +161,6 @@ public class Main {
     }
 
 
-
     public static void main(String[] args) {
         char eingabe;
         Scanner sc = new Scanner(System.in);
@@ -168,6 +170,5 @@ public class Main {
             eingabe = sc.next().charAt(0);
             System.out.println();
         }while(eingabe != 'n');
-
     }
 }
