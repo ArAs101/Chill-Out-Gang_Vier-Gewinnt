@@ -13,3 +13,5 @@ Dann könnt ihr für jede .fxml-Datei über Rechtsklick den Punkt "Open In Scene
 Das wär's für's Erste von uns. Wir freuen uns auf euer Feedback!
 
 LG Chill-Out Gang
+
+PS: Siehe https://github.com/ArAs101/Chill-Out-Gang für den Codingverlauf...
